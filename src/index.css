@@ -1,0 +1,82 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. Prevent font size inflation and set default smooth scrolling */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  scroll-behavior: smooth;
+}
+
+/* 3. Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* 4. Ensure images and media are responsive */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 5. Inherit fonts for form controls and remove default button styles */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* 6. Avoid text overflow issues in text fields */
+textarea {
+  resize: vertical;
+}
+
+/* 7. Remove list styles on ul, ol elements with a list role, which suggests default styling should be removed */
+ul,
+ol {
+  list-style: none;
+}
+
+/* 8. Balance text wrapping for headings and remove underline defaults on links */
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+#root {
+  min-height: 100vh;
+  isolation: isolate;
+}

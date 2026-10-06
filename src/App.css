@@ -1,0 +1,169 @@
+/* ---------- Tokens ---------- */
+:root {
+  --page: #eaf1fe;
+  --body: #ffffff;
+  --display-bg: #1c2a52;
+  --display-text: #ffffff;
+  --key: #ffffff;
+  --key-hover: #f0f5ff;
+  --key-active: #dfe9fd;
+  --operator: #d9e6ff;
+  --operator-hover: #c8dbff;
+  --operator-active: #b6cffd;
+  --accent: #2f6bff;
+  --accent-hover: #4c80ff;
+  --accent-active: #1f55d9;
+  --clear: #e5484d;
+  --line: #d3def5;
+  --text: #1c2a52;
+  --muted: #6b7aa3;
+
+  --radius: 10px;
+  --gap: 8px;
+  --font: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--page);
+  color: var(--text);
+  font-family: var(--font);
+}
+
+/* ---------- Layout ---------- */
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 24px 16px;
+  text-align: center;
+}
+
+.Header {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}
+
+/* ---------- Calculator ---------- */
+.Calculator {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  background: var(--body);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: 0 12px 32px rgba(34, 38, 45, 0.1);
+}
+
+.Display {
+  min-height: 80px;
+  margin-bottom: 20px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  background: var(--display-bg);
+  color: var(--display-text);
+  border-radius: var(--radius);
+  font-size: 2.5rem;
+  font-weight: 300;
+  font-variant-numeric: tabular-nums;
+  overflow: hidden;
+  word-break: break-all;
+}
+
+/* ---------- Keypad ---------- */
+.Keypad {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--gap);
+}
+
+.Button {
+  aspect-ratio: 1.15;
+  background: var(--key);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  font: inherit;
+  font-size: 1.4rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background-color 0.12s ease;
+}
+
+.Button:hover {
+  background: var(--key-hover);
+}
+
+.Button:active {
+  background: var(--key-active);
+}
+
+.Button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Operators: last column (+, x, -, ÷) */
+.Button:nth-child(4n) {
+  background: var(--operator);
+  border-color: transparent;
+}
+.Button:nth-child(4n):hover {
+  background: var(--operator-hover);
+}
+.Button:nth-child(4n):active {
+  background: var(--operator-active);
+}
+
+/* CLR: 13th key */
+.Button:nth-child(13) {
+  font-size: 1.1rem;
+  color: var(--clear);
+}
+
+/* Equals: 15th key */
+.Button:nth-child(15) {
+  background: var(--accent);
+  border-color: transparent;
+  color: #ffffff;
+}
+.Button:nth-child(15):hover {
+  background: var(--accent-hover);
+}
+.Button:nth-child(15):active {
+  background: var(--accent-active);
+}
+
+/* ---------- Small screens & motion ---------- */
+@media (max-width: 380px) {
+  .Calculator {
+    padding: 14px;
+  }
+  .Display {
+    font-size: 2rem;
+  }
+  .Button {
+    font-size: 1.2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .Button {
+    transition: none;
+  }
+}
