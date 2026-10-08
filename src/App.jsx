@@ -125,7 +125,7 @@ function App() {
           <CalcButton buttonLabel={4} onClick={() => handleDigit(4)} />
           <CalcButton buttonLabel={5} onClick={() => handleDigit(5)} />
           <CalcButton buttonLabel={6} onClick={() => handleDigit(6)} />
-          <CalcButton buttonLabel="×" buttonClassname="Button Operator" onClick={() => handleOperator('×')} />
+          <CalcButton buttonLabel="*" buttonClassname="Button Operator" onClick={() => handleOperator('×')} />
           <CalcButton buttonLabel={1} onClick={() => handleDigit(1)} />
           <CalcButton buttonLabel={2} onClick={() => handleDigit(2)} />
           <CalcButton buttonLabel={3} onClick={() => handleDigit(3)} />
